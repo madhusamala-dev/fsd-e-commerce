@@ -35,6 +35,19 @@ public class ProductRepository {
         return this.products;
     }
 
+    public Product update(int id, Product product) {
+        products.replaceAll(p -> p.getId() == id ? product : p);
+        return product;
+    }
+
+    public boolean delete(int id) {
+        return products.removeIf(product -> product.getId() == id);
+    }
+
+    public boolean delete(Product product){
+        return products.remove(product);
+    }
+
 
 
 }
